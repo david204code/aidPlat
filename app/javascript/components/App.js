@@ -1,6 +1,6 @@
 import React from 'react'
-import SignUp from '../components/forms/signUp'
-import SignIn from '../components/forms/signIn'
+import SignUp from './forms/signUp'
+import SignIn from './forms/signIn'
 
 class App extends React.Component {
   render () {

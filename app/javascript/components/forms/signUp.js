@@ -1,5 +1,6 @@
 import React from 'react';
 import "./signUp.css";
+import axios from 'axios';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -22,9 +23,30 @@ class SignUp extends React.Component {
       [event.target.name]: event.target.value
     });
   }
-  
+
   handleSubmit(event) {
-    console.log("form submitted");
+    const { email, password, password_confirmation } =this.state;
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+    axios
+    .post("http://localhost:3000/users", 
+    {
+      user: {
+        email: this.state.email,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation
+      }
+    },
+    
+    { withCredentials: true }
+    ).then(response => {
+      if (response.data.status === 'created') {
+        this.props.handleSuccessfulAuth(response.data)
+      }
+    }).catch(error => {
+      console.log("registration error", error);
+    });
     event.preventDefault();
   }
 
