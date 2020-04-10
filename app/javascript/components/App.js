@@ -1,6 +1,7 @@
-import React from 'react'
-import SignUp from './forms/signUp'
-import SignIn from './forms/signIn'
+import React from 'react';
+import SignUp from './auth/SignUp';
+import SignIn from './auth/SignIn';
+import SignOut from  './auth/SignOut';
 
 class App extends React.Component {
   render () {
@@ -12,6 +13,7 @@ class App extends React.Component {
         <p class="display-1">This is the App.js</p> */}
         <SignUp />
         <SignIn />
+        <SignOut />
       </div>
     )
   }
