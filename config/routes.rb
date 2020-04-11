@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { 
     sessions: 'users/sessions' 
   }
+
+  resources :helps
+
   root 'pages#index'
   get 'pages/index'
 end
