@@ -2,6 +2,7 @@ import React from 'react';
 import SignUp from './auth/SignUp';
 import SignIn from './auth/SignIn';
 import SignOut from  './auth/SignOut';
+import Map from './map/Map';
 
 class App extends React.Component {
   render () {
@@ -11,6 +12,7 @@ class App extends React.Component {
           Tooltip on top
         </button>
         <p class="display-1">This is the App.js</p> */}
+        <Map />
         <SignUp />
         <SignIn />
         <SignOut />

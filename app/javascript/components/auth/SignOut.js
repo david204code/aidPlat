@@ -14,7 +14,7 @@ class SignOut extends React.Component {
 
     axios
     .delete("http://localhost:3000/users/sign_out/", 
-    
+    // .delete("http://localhost:3000/users/sign_out/", current user id to work
     { withCredentials: true}
     )
     .then(response => {
