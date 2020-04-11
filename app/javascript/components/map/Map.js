@@ -34,8 +34,8 @@ class Map extends React.Component {
           >
 
           <Marker 
-            latitude={51.508} 
             longitude={-0.140} 
+            latitude={51.508} 
             offsetLeft={-20} 
             offsetTop={-10}
           >
