@@ -3,6 +3,7 @@ import SignUp from './auth/SignUp';
 import SignIn from './auth/SignIn';
 import SignOut from  './auth/SignOut';
 import Map from './map/Map';
+import Help from './help/help';
 
 class App extends React.Component {
   render () {
@@ -13,10 +14,11 @@ class App extends React.Component {
             Log out
           </a>
         </div> */}
-        <Map />
-        <SignUp />
-        <SignIn />
-        <SignOut />
+        {/* <Map /> */}
+        {/* <SignOut /> */}
+        {/* <SignUp /> */}
+        {/* <SignIn /> */}
+        <Help />
       </div>
     )
   }
