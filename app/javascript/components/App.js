@@ -7,6 +7,7 @@ import SignUp from './auth/SignUp';
 import Map from './map/Map';
 import Help from './help/help';
 import Request from './map/Request';
+import ConversationsList from './messaging/ConversationsList';
 
 class App extends React.Component {
   render () {
@@ -35,6 +36,11 @@ class App extends React.Component {
             <Route
               exact path ={"/help"}
               component = { Help }
+            />
+
+            <Route
+              exact path = {"/conversationslist"}
+              component = { ConversationsList }
             />
 
           </Switch>

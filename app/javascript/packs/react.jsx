@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import App from '../components/App'
 import { ActionCableProvider } from 'react-actioncable-provider';
-import { API_WS_ROOT } from '../constants/index';
+import { API_WS_ROOT } from '../components/constants/index';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
