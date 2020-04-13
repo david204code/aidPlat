@@ -5,6 +5,7 @@ ruby '2.6.5'
 gem 'devise'
 gem 'pg'
 gem 'rack-cors'
+gem 'active_model_serializers', '~> 0.10.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
