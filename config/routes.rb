@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   }
 
   resources :helps
-
+  get 'helps', to: 'helps#index'
   root 'pages#index'
   get 'pages/index'
+
+  match '*pages', to: 'pages#index', via: :all
 end

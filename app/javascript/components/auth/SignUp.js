@@ -1,10 +1,12 @@
 import React from 'react';
-import "./SignUp.css";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class SignUp extends React.Component {
+
   constructor(props) {
     super(props);
+
     this.state = { 
       // firstName: '',
       // lastName: '',
@@ -52,40 +54,73 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <form onSubmit ={this.handleSubmit} className ="">
-        <label>
-          Name:
-          <input 
-            type ="email" 
-            name ="email" 
-            placeholder ="Your email" 
-            value ={this.state.email} 
-            onChange ={this.handleChange} 
-            required 
-          />
-        </label>
-          <input
-            type ="password"
-            name ="password"
-            placeholder ="Your Password"
-            value ={this.state.password}
-            onChange ={this.handleChange}
-            required  
-          />
+      <div className ="container mt-5">
+        <div className ="row">
+          <div className ="col-md-6 offset-md-3">
+            <h1 className ="mb-5 text-center text-muted">
+              Join in by filling in this form!
+            </h1>
+            <form onSubmit={this.handleSubmit}>
+              <div className ="form-group">
+                <label htmlFor="">Email Address</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Your Email" 
+                  className="form-control"
+                  value={this.state.email} 
+                  onChange={this.handleChange} 
+                  required 
+                />
+              </div>
+              <div className ="form-group">
+                <label>Password</label>
+                <input 
+                  type="password"
+                  name="password"
+                  placeholder="Your password"
+                  className="form-control"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  required
+                />
+              </div>
+              <div className ="form-group">
+                <label>Confirm password</label>
+                <input
+                  type="password"
+                  name="password_confirmation"
+                  placeholder="Confirm password"
+                  className ="form-control"
+                  value={this.state.password_confirmation}
+                  onChange={this.handleChange}
+                  required
+                />
+              </div>
+              <div className ="text-center">
+                <button type="submit" className ="btn btn-success mt-1">
+                  Register
+                </button>
+              </div>
+              <div className ="text-left">
+                <Link 
+                  to ="/"
+                  className =""
+                  role = "button"
+                  >
+                  <button className ="btn btn-light mt-1">
+                    Log in instead
+                  </button>
+                </Link>
+              </div>
 
-          <input 
-            type ="password"
-            name ="password_confirmation"
-            placeholder ="Confirmed Password"
-            value ={this.state.password_confirmation}
-            onChange ={this.handleChange}
-            required
-          />
+            </form>
 
-        <button type ="submit">Sign Up!</button>
-      </form>
-    )
-  }
-}
+          </div>
+        </div>
+      </div>
+    );
+  };
+};
 
 export default SignUp
