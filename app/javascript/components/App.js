@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SignUp from './auth/SignUp';
 // import SignIn from './auth/SignIn';
-// import SignOut from  './auth/SignOut';
+import SignOut from  './auth/SignOut';
 import Map from './map/Map';
 import Help from './help/help';
 import Request from './map/Request';
@@ -50,7 +50,7 @@ class App extends React.Component {
             Log out
           </a>
         </div> */}
-        {/* <SignOut /> */}
+        <SignOut />
       </div>
     )
   }
