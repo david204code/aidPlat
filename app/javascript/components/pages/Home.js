@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignIn from '../auth/SignIn';
+import Navbar from './Navbar';
 
 class Home extends React.Component {
 
@@ -13,10 +14,11 @@ class Home extends React.Component {
   render() {
     return (
       <div className ="container">
-        <h1 className ="text-center">Aid Platform</h1>
+        {/* <h1 className ="text-center">Aid Platform</h1>
         <h4 className ="text-center">Help those around you, your very own local
           neighbour aid platform for your neighbour!
         </h4>
+        <Navbar /> */}
         <div className ="row">
           <div className ="col-md-5 text-center" style={{backgroundColor: "lightblue"}}>
             <p className ="pt-4">

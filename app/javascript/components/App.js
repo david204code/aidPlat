@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import Navbar from './pages/Navbar';
 import Home from './pages/Home';
 import SignUp from './auth/SignUp';
 // import SignIn from './auth/SignIn';
@@ -14,6 +15,7 @@ class App extends React.Component {
     return (
       <div>
         <BrowserRouter>
+          <Navbar />
           <Switch >
             
             <Route 
