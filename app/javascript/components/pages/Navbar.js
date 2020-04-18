@@ -32,6 +32,14 @@ class Navbar extends React.Component {
               Submit a post
             </button>
           </Link>
+
+          <Link
+            to ="/dashboard"
+          >
+            <button className ="">
+              Dashboard
+            </button>
+          </Link>
         </nav>
       </div>
     );

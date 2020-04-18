@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Navbar from './pages/Navbar';
 import Home from './pages/Home';
 import SignUp from './auth/SignUp';
@@ -9,13 +9,40 @@ import Map from './map/Map';
 import Help from './help/help';
 import Request from './map/Request';
 import ConversationsList from './messaging/ConversationsList';
+import Dashboard from './pages/Dashboard';
+
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true
+    setTimeout(cb, 100) //fake asyn
+  },
+  signout(cb) {
+    this.isAuthenticated = false
+    setTimeout(cb, 100)
+  }
+}
 
 class App extends React.Component {
+  
   render () {
+    
+    const PrivateRoute = ({ component: Component, ...rest}) => (
+      <Route {...rest} render={(props) => (
+        fakeAuth.isAuthenticated === true
+          ? <Component {...props}/>
+          : <Redirect to={{
+              pathname: '/',
+              state: { from: props.location }
+          }} />
+      )}/>
+    )
     return (
       <div>
         <BrowserRouter>
+
           <Navbar />
+        
           <Switch >
             
             <Route 
@@ -26,6 +53,10 @@ class App extends React.Component {
               exact path ={"/signup"}
               component = { SignUp }
             />
+            <PrivateRoute
+              exact path ={"/dashboard"}
+              component = { Dashboard }
+            />
             <Route
               exact path ={"/map"}
               component = { Map }
@@ -35,7 +66,7 @@ class App extends React.Component {
               path="/help/:id" exact component ={Request}
             />
 
-            <Route
+            <PrivateRoute
               exact path ={"/help"}
               component = { Help }
             />
