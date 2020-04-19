@@ -11,26 +11,37 @@ import Request from './map/Request';
 import ConversationsList from './messaging/ConversationsList';
 import Dashboard from './pages/Dashboard';
 import Notice from './pages/Notice';
+import axios from 'axios';
 
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) //fake asyn
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
+// const fakeAuth = {
+//   isAuthenticated: true,
+//   authenticate(cb) {
+//     this.isAuthenticated = true
+//     setTimeout(cb, 100) //fake asyn
+//   },
+//   signout(cb) {
+//     this.isAuthenticated = false
+//     setTimeout(cb, 100)
+//   }
+// }
 
 class App extends React.Component {
-  
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedInStatus: false,
+    }
+
+  }
+ 
   render () {
-    
+    const isAuthenticated = this.state.loggedInStatus
     const PrivateRoute = ({ component: Component, ...rest}) => (
       <Route {...rest} render={(props) => (
-        fakeAuth.isAuthenticated === true
+        // fakeAuth.isAuthenticated === true
+        isAuthenticated === true
           ? <Component {...props}/>
           : <Redirect to={{
               pathname: '/notice',
@@ -63,13 +74,13 @@ class App extends React.Component {
               component = { Map }
             /> 
 
-            <Route
-              path="/help/:id" exact component ={Request}
-            />
-
             <PrivateRoute
               exact path ={"/help"}
               component = { Help }
+            />
+
+            <PrivateRoute
+              path="/help/:id" exact component ={Request}
             />
 
             <Route
