@@ -10,6 +10,7 @@ import Help from './help/help';
 import Request from './map/Request';
 import ConversationsList from './messaging/ConversationsList';
 import Dashboard from './pages/Dashboard';
+import Notice from './pages/Notice';
 
 const fakeAuth = {
   isAuthenticated: false,
@@ -32,7 +33,7 @@ class App extends React.Component {
         fakeAuth.isAuthenticated === true
           ? <Component {...props}/>
           : <Redirect to={{
-              pathname: '/',
+              pathname: '/notice',
               state: { from: props.location }
           }} />
       )}/>
@@ -74,6 +75,11 @@ class App extends React.Component {
             <Route
               exact path = {"/conversationslist"}
               component = { ConversationsList }
+            />
+
+            <Route
+              exact path = {"/notice"}
+              component = { Notice }
             />
 
           </Switch>
