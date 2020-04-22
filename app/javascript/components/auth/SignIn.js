@@ -29,7 +29,7 @@ class SignIn extends React.Component {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
     
     axios
-    .post("http://localhost:3000/users/sign_in", 
+    .post("http://localhost:3000/sessions", 
     {
       user: {
         email: this.state.email,
@@ -40,12 +40,19 @@ class SignIn extends React.Component {
     { withCredentials: true }
     )
     .then(response => {
+      console.log(response);
       if (response.data.logged_in === true ) {
         this.props.handleSuccessfulAuth(response.data);
       }
     })
     .catch(error => {
-      console.log("Login error", error);
+      // console.log("Login error", error);
+      // console.log(error.request);
+      // console.log('Error', error.message);
+      console.log(error.config);
+      console.log(error.response.data);
+      // console.log(error.response.status);
+      // console.log(error.response.headers);
     });
     event.preventDefault();
   }
